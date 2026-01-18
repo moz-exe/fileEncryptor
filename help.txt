@@ -1,0 +1,21 @@
+FileEncryptor - Help menu
+
+This tool allows you to cypher and decypher a selected file using the encryption algorithm of your choice.
+Usage : ./fileEncryptor -f /file/path -k password -v [-d]
+
+-h			Shows help menu (this)
+
+-f /file/path		Specify the filepath of the file you want to cypher or decypher
+--file /file/path
+
+-d			Specify this flag if you want to decypher a file.
+--decypher		By default, this tool cyphers selected file.
+
+-k password		Specify the key you want to use to cypher or decypher your file.
+--key password
+
+-c			Specify this flag if you want to use Caesar's algorithm to cypher / decypher your file.
+--caesar
+
+-v			Specify this flag if you want to use Vigenaire's algorithm to cypher / decypher your file.
+--vigenaire
