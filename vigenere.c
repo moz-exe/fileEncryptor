@@ -69,4 +69,36 @@ void vigenereCypher(char* filePath, char* key, bool decypher) {
 
     fclose(vigenereTableCSV);
 
+    FILE* file = fopen(filePath, "rb+");
+
+    if (!file) {
+        perror("fopen");
+        exit(EXIT_FAILURE);
+    }
+
+    fseek(file, 0, SEEK_END); // Aller à la fin du fichier
+    long fileSize = ftell(file);
+    fseek(file, 0, SEEK_SET); // Retourner au début
+
+    //Convert hexadecimal key values into decimal key values
+    int decKey[keyLength];
+    for (int i = 0; i <= keyLength; i++) {
+        decKey[i] = (int)strtol(hexKey[i], NULL, 0);
+    }
+
+    char input[fileSize];
+    char output[fileSize];
+
+    int keyIndex = 0;
+    size_t idx = 0;
+    int c;
+
+    while ((c = fgetc(file)) != EOF && idx < (size_t)fileSize) {
+        // Convertion des valeurs hexadécimales en numéros de ligne et de colonne
+        int clearColumnNumber = (int)strtol(c, NULL, 0);
+
+        
+        idx++;
+    }
+
 }
