@@ -2,11 +2,13 @@
 #include <string.h>
 #include <stdbool.h> 
 #include <stdlib.h>
+
 #include "caesar.c"
+#include "vigenere.c"
 
 typedef enum algo {
     caesar,
-    vigenaire
+    vigenere
 }Algo;
 
 
@@ -54,8 +56,8 @@ int main(int argc, char **argv) {
         } else if (strcmp(argv[i], "-c") == 0 | strcmp(argv[i], "--caesar") == 0) {
             algo = caesar;
 
-        } else if (strcmp(argv[i], "-v") == 0 | strcmp(argv[i], "--vigenaire") == 0) {
-            algo = vigenaire;
+        } else if (strcmp(argv[i], "-v") == 0 | strcmp(argv[i], "--vigenere") == 0) {
+            algo = vigenere;
 
         }
     }
@@ -69,9 +71,9 @@ int main(int argc, char **argv) {
             caesarCypher(filePath, key, decypher);
             break;
 
-        // case vigenaire :
-        //     vigenaireCypher();
-        //     break;
+        case vigenere :
+            vigenereCypher(filePath, key, decypher);
+            break;
             
     }
 
