@@ -69,6 +69,7 @@ void vigenereCypher(char* filePath, char* key, bool decypher) {
 
     fclose(vigenereTableCSV);
 
+    // Ouverture du fichier à chiffrer
     FILE* file = fopen(filePath, "rb+");
 
     if (!file) {
@@ -84,6 +85,7 @@ void vigenereCypher(char* filePath, char* key, bool decypher) {
     int decKey[keyLength];
     for (int i = 0; i <= keyLength; i++) {
         decKey[i] = (int)strtol(hexKey[i], NULL, 0);
+        printf("decKey[%i] : %i", i, decKey[i]);
     }
 
     char input[fileSize];
@@ -95,7 +97,8 @@ void vigenereCypher(char* filePath, char* key, bool decypher) {
 
     while ((c = fgetc(file)) != EOF && idx < (size_t)fileSize) {
         // Convertion des valeurs hexadécimales en numéros de ligne et de colonne
-        int clearColumnNumber = (int)strtol(c, NULL, 0);
+        int clearColumnNumber = (int)strtol(c, NULL, 0); // Numéro de colonne en décimal
+        int keyRowNumber = 
 
         
         idx++;
