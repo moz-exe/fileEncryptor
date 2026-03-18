@@ -43,7 +43,7 @@ void caesarCypher(char* filePath, char* key, bool decypher) {
             // putchar(c);
             tab1[idx] = (char)c;
             // increment character for tab2
-            tab2[idx] = (char)(operation(c, (int) key));
+            tab2[idx] = (char)(operation(c, (int) *key));
             idx++;
         }
 

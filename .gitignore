@@ -59,3 +59,5 @@ rapport.txt
 test*
 .~lock.vigenere_hex_table.csv#
 vigenere_algo.txt
+*.drawio*
+fileEncryptor
