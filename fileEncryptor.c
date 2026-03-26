@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
             break;
 
         case vigenere :
-            vigenereCypher(filePath, key, decypher);
+            vigenereAlgo(filePath, key, decypher);
             break;
             
     }
