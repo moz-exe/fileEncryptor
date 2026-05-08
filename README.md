@@ -1,10 +1,14 @@
+<p align="center">
+    <img src="https://github.com/moz-exe/fileEncryptor/blob/main/images/logo.png" alt="logo" style="width:20%; height:auto;">
+</p>
+
 # fileEncryptor
 fileEncryptor is a tool to cypher and decypher a file using a variety of encryption algorithm
 
-fileEncryptor is a personal project developed out of curiosity about cryptography and will to discover how encryption algorithms work.
+It is a personal project developed out of curiosity about cryptography and will to discover how encryption algorithms work.
 
-Disclaimer :
-This tool is a personnal project made for educationnal purposes.
+[!CAUTION]
+Disclaimer : This tool is a personnal project made for educationnal purposes.
 Every algorithm present in this code is an interpretation of the commonly known algorithm with which it shares its name; thus, it does not meet any safety standards and must not be used to secure sensitive information.
 
 ## Supported encryption algorithms
@@ -14,6 +18,32 @@ This tool supports the following encryption algorithms :
 - (to be implemented)
 
 ## Features
+- __Encryption__ : fileEncryptor can encrypt a selected file with given algorithm and key.
+- __Decryption__ : The same way it can encrypt a file, it can decrypt it with the flag `-d`
+- __Logs__ (to be implemented) : As this tool is made for educationnal purposes, every encryption and decryption are logged into a file, with the path of the file treated and the algorithm and key used.
 
+## How to use
+After compiling this project with a C compiler and giving the executable file execute permission with `chmod +x fileEncryptor`, 
+you can execute it with this command : `./fileEncryptor -f /file/path -k password -v [-d]`
+
+The following table describes every flag currently available : \
+┌───────────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────┐\
+│-h			            │ Shows help menu (this)									                                    │\
+├───────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤\
+│-f /file/path		    │ Specify the filepath of the file you want to cypher or decypher				                │\
+│--file /file/path	    │												                                                │\
+├───────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤\
+│-d			            │ Specify this flag if you want to decypher a file.						                        │\
+│--decypher		        │ By default, this tool cyphers selected file.						                        	│\
+├───────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤\
+│-k password		    │ Specify the key you want to use to cypher or decypher your file.			                	│\
+│--key password		    │												                                                │\
+├───────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤\
+│-c			            │ Specify this flag if you want to use Caesar's algorithm to cypher / decypher your file.	    │\
+│--caesar		        │											                                                	│\
+├───────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────┤\
+│-v			            │ Specify this flag if you want to use Vigenaire's algorithm to cypher / decypher your file.	│\
+│--vigenaire	    	│											                                                	│\
+└───────────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────┘\
 
 ## Project architecture
