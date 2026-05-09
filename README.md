@@ -26,7 +26,7 @@ This tool supports the following encryption algorithms :
 After compiling this project with a C compiler and giving the executable file execute permission with `chmod +x fileEncryptor`, 
 you can execute it with this command : `./fileEncryptor -f /file/path -k password -v [-d]`
 
-The following table describes every flag currently available :\
+The following table describes every flag currently available :
 <p align="center">
     <img src="images/flags.png" alt="flags table" style="width:auto; height:auto;">
 </p>
