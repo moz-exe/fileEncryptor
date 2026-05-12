@@ -15,7 +15,7 @@ It is a personal project developed out of curiosity about cryptography and will 
 This tool supports the following encryption algorithms :
 - Ceasar
 - Vigenere
-- (to be implemented)
+- Chacha20 (to be implemented)
 
 ## Features
 - __Encryption__ : fileEncryptor can encrypt a selected file with given algorithm and key.
