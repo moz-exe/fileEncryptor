@@ -5,10 +5,12 @@
 
 #include "caesar.c"
 #include "vigenere.c"
+#include "chacha20.c"
 
 typedef enum algo {
     caesar,
-    vigenere
+    vigenere,
+    chacha20
 }Algo;
 
 
@@ -59,6 +61,9 @@ int main(int argc, char **argv) {
         } else if (strcmp(argv[i], "-v") == 0 | strcmp(argv[i], "--vigenere") == 0) {
             algo = vigenere;
 
+        } else if (strcmp(argv[i], "-ch") == 0 | strcmp(argv[i], "--chacha20") == 0) {
+            algo = chacha20;
+
         }
     }
 
@@ -66,14 +71,31 @@ int main(int argc, char **argv) {
     printf("Decypher : %d \r\n", decypher);
     printf("FilePath : %s \r\n", filePath);
 
+    if (!filePath) {
+        perror("File does not exist");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE* file = fopen(filePath, "rb+");
+
     switch (algo) {
         case caesar :
-            caesarCypher(filePath, key, decypher);
+            caesarCypher(file, key, decypher);
             break;
 
         case vigenere :
-            vigenereAlgo(filePath, key, decypher);
-            break;
+            unsigned char vigenereTable[rows][columns];
+            createVigenereTable(vigenereTable);
+
+            if (decypher == true) {
+                vigenereDecypher(file, key, vigenereTable);
+            } else {
+                vigenereCypher(file, key, vigenereTable);
+            }
+                    break;
+
+        case chacha20 :
+
             
     }
 

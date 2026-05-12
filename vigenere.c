@@ -57,12 +57,7 @@ void createVigenereTable(unsigned char vigenereTable[rows][columns]) {
     fclose(vigenereTableCSV);
 }
 
-void vigenereCypher(char* filePath, char* key, unsigned char vigenereTable[rows][columns]) { 
-
-    if (filePath == NULL) {
-        perror("No file specified");
-        exit(EXIT_FAILURE);
-    }
+void vigenereCypher(FILE* file, char* key, unsigned char vigenereTable[rows][columns]) { 
 
     int keyLength = strlen(key);
 
@@ -73,13 +68,7 @@ void vigenereCypher(char* filePath, char* key, unsigned char vigenereTable[rows]
 
     printf("\n\n\r");
 
-// -------------------- Opening & cyphering file to cypher --------------------
-    FILE* file = fopen(filePath, "rb+");
-
-    if (!file) {
-        perror("fopen");
-        exit(EXIT_FAILURE);
-    }
+// -------------------- Cyphering file --------------------
 
     fseek(file, 0, SEEK_END); // Aller à la fin du fichier
     size_t fileSize = ftell(file);
@@ -132,11 +121,7 @@ void vigenereCypher(char* filePath, char* key, unsigned char vigenereTable[rows]
     fclose(file);
 }
 
-void vigenereDecypher(char* filePath, char* key, unsigned char vigenereTable[rows][columns]) {
-    if (filePath == NULL) {
-        perror("No file specified");
-        exit(EXIT_FAILURE);
-    }
+void vigenereDecypher(FILE* file, char* key, unsigned char vigenereTable[rows][columns]) {
 
     int keyLength = strlen(key);
 
@@ -147,13 +132,7 @@ void vigenereDecypher(char* filePath, char* key, unsigned char vigenereTable[row
 
     printf("\n\n\r");
 
-// -------------------- Opening & Decyphering file to decypher --------------------
-    FILE* file = fopen(filePath, "rb+");
-
-    if (!file) {
-        perror("fopen");
-        exit(EXIT_FAILURE);
-    }
+// -------------------- Decyphering file --------------------
 
     fseek(file, 0, SEEK_END); // Aller à la fin du fichier
     size_t fileSize = ftell(file);
@@ -206,17 +185,4 @@ void vigenereDecypher(char* filePath, char* key, unsigned char vigenereTable[row
     free(output);
     free(input);
     fclose(file);
-}
-
-
-void vigenereAlgo(char* filePath, char* key, bool decypher) {
-
-    unsigned char vigenereTable[rows][columns];
-    createVigenereTable(vigenereTable);
-
-    if (decypher == true) {
-        vigenereDecypher(filePath, key, vigenereTable);
-    } else {
-        vigenereCypher(filePath, key, vigenereTable);
-    }
 }
